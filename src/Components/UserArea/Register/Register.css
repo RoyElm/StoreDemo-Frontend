@@ -1,0 +1,9 @@
+.Register {
+    color: white;
+    display: inline-block;
+
+}
+.Register  input {
+    text-align: right;
+}
+

@@ -1,0 +1,11 @@
+.Menu {
+    position: fixed;
+    right: 2%;
+}
+
+@media screen and (max-width:750px){
+    .Menu {
+        top: 200px;
+        right: -29px;
+    }
+}

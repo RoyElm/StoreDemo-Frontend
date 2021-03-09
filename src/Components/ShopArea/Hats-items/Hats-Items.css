@@ -1,0 +1,28 @@
+.Hats-Items{
+    justify-content: center;
+    margin-left: 20%;
+}
+
+.Hats-Items > .Card:first-of-type{
+    position: relative;
+    width: 42.8%;
+    height: 440px;
+    left: 20%;
+}
+  
+.Hats-Items .Card section * {
+    font-size: medium;
+    font-weight: bolder;
+}
+
+@media screen and (max-width:750px){
+    .Hats-Items{
+        justify-content: center;
+        margin-left: 10%;
+    }
+    .Hats-Items > .Card:first-of-type{
+        width: 100%;
+        height: 20%;
+        left: -17%;
+    }
+}

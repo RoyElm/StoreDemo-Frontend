@@ -1,0 +1,35 @@
+.Links {
+    display: flex;
+    justify-content: center;
+}
+.navTag{
+    position: relative;
+    width: 100px;
+    padding: 8px;
+    background-color: white;
+    border-radius: 50%;
+    color: black;
+    text-decoration: none;
+    margin-top: 10%;
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.navTag span {
+    position: relative;
+    top: 10%;
+}
+a:hover{
+    color: blue;
+    text-decoration: none;
+}
+
+.navTag img {
+    width: 73%;
+}
+
+@media screen and (max-width:750px){
+    .navTag{
+        width: 90px;
+    }
+}

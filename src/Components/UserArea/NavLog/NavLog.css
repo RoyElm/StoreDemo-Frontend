@@ -1,0 +1,10 @@
+.NavLog {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+}
+
+.NavLog a ,.NavLog span{
+    text-decoration: none;
+    color: whitesmoke;
+}
