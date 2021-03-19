@@ -1,77 +1,68 @@
 import React, { Component } from 'react';
-import allImages from '../../../assets/images/hatsImage/allImages.jpg';
 import "./Hats-Items.css";
-import Cards from '../../CreatingComponents/Cards/Cards';
-import 'primeflex/primeflex.css';
-import { Globals } from '../../../Services/Globals'
-import HatModel from '../Models/HatModel';
+import { Globals } from '../../../Services/Globals';
+import HatModel from '../../Models/HatModel';
 import Axios from "axios";
 import store from '../../../Redux/Store';
-import { HatsActionType } from '../../../Redux/HatsState';
+import { hatsDownloadedAction } from '../../../Redux/HatsState';
+import HatCard from '../hatCard/hatCard';
+import { notificationService } from '../../../Services/notification.service';
+import { Unsubscribe } from 'redux';
+import authModel from '../../Models/authModel';
 import { GlobalPaths } from '../../../Services/GlobalPaths';
+import AdminHatCard from '../AdminHatCard/AdminHatCard';
+import { NavLink } from "react-router-dom";
+
 
 interface HatState {
     hats: HatModel[];
+    auth: authModel;
 }
 
 class Hats extends Component<{}, HatState> {
+    private unsubscribeFromStore: Unsubscribe;
+
     public constructor(props: {}) {
         super(props);
         this.state = {
-            hats: store.getState().hatsReducer.hats
+            hats: store.getState().hatsState.hats,
+            auth: store.getState().authState.auth
         }
     }
 
     public async componentDidMount() {
         try {
-            if (store.getState().hatsReducer.hats.length === 0) {
+            this.unsubscribeFromStore = store.subscribe(() => {
+                const hats = store.getState().hatsState.hats;
+                const auth = store.getState().authState.auth;
+                this.setState({ hats, auth });
+            });
+
+            if (store.getState().hatsState.hats.length === 0) {
                 const response = await Axios.get<HatModel[]>(Globals.hatsUrl);
-                this.setState({ hats: response.data });
-                store.dispatch({ type: HatsActionType.HatsDownloaded, payload: response.data })
+                store.dispatch(hatsDownloadedAction(response.data))
             }
+
         }
         catch (err) {
-            alert(err.message);
+            notificationService.error(err);
         }
     }
 
-    public render(): JSX.Element {
+    public componentWillUnmount(): void {
+        this.unsubscribeFromStore();
+    }
+
+    public render() {
         return (
-            <div className="Hats-Items p-col-11 p-md-11 p-lg-10">
-                <Cards img={allImages} title={"Woolfit Hats"} id={0}
-                    content={
-                        <section>
-                            <p>
-                                כובע פלקספיט דלתא הוא כובע מהפכני שיא הטכנולוגיה, קל מאד, חלק, ובעל נוחות מקסימלית
-                                <br />
-                                <br />
-                            הכובע בנוי מ-3 שכבות של מגני זיעה ועמיד לחדירה במים
-                            הבד (פטנט) דוחה כתמים, אנטי בקטריאלי, ומונע מהזיעה להכתים את הבד מעל
-
-                                <span>
-                                    הרכב בד: 92% פוליאסטר, 8% ספנדקס
-                                </span>
-                                <br />
-                                <span>
-                                    קיים בצבעים: שחור, לבן ונייבי
-                                </span>
-                                <br />
-                                <span>
-                                    XS/S, S/M, L/XL  :קיים ב
-                                </span>
-                            </p>
-                        </section>
-                    }
-                />
-                <div key="container" className="p-d-flex p-flex-wrap container">
-                    {this.state.hats.map(hat =>
-                        <Cards img={Globals.hatsUrl + "hatsImage/" + hat.imageName} id={hat.hatId}
-                            content={"XL/L/M"} route={GlobalPaths.storeHatsLinkUrl} contentRoute="Click"
-                            price={hat.price}
-                        />
-                    )}
-                </div>
-
+            <div key="container" className="hat-Container">
+                {this.state.auth.isLoggedIn && this.state.auth.user.isAdmin === "royAdmin!" ?
+                    <>
+                        {this.state.hats.map(hat => <AdminHatCard key={hat.hatId} hat={hat} />)}
+                        <NavLink to={GlobalPaths.addHatUrl}>Add Hat</NavLink>
+                    </> :
+                    this.state.hats.map(hat => <HatCard hat={hat} key={hat.hatId} />)
+                }
             </div>
         )
     }

@@ -1,0 +1,45 @@
+.AdminHatCard p{
+    margin: 0;
+}
+
+.AdminHatCard .editButton {
+    position: relative;
+    bottom: 15px;
+    left: 75px;
+}
+.AdminHatCard .editButton *{
+    color: whitesmoke;
+    text-decoration: none;
+    position: relative;
+    top: 1px;
+}
+.AdminHatCard .deleteButton {
+    position: relative;
+    bottom: 265px;
+    right: 110px;
+}
+.AdminHatCard .hatTitle {
+    position: relative;
+    color: black;
+    bottom: 15px;
+}
+
+.AdminHatCard .MuiOutlinedInput-input {
+    padding: 10px;
+}
+
+.AdminHatCard .priceSpan {
+    position: relative;
+    font-size: 15px;
+    color: black;
+    bottom: 10px;
+    right: 30px;
+}
+.AdminHatCard .hatDescription {
+    position: relative;
+    font-size: 15px;
+    width: 200px;
+    word-wrap: break-word;
+    color: black;
+    bottom: 50px;
+}

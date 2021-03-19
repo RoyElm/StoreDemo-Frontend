@@ -1,0 +1,38 @@
+.hatCard p{
+    margin: 0;
+}
+.hatCard .addToCartButton {
+    position: relative;
+    left: 55px;
+    bottom: 15px;
+    font-size: 10px;
+}
+.hatCard .addIcon {
+    font-size: 10px;
+}
+
+.hatCard .hatTitle {
+    position: relative;
+    color: black;
+    bottom: 15px;
+}
+
+.hatCard .MuiOutlinedInput-input {
+    padding: 10px;
+}
+
+.hatCard .priceSpan {
+    position: relative;
+    font-size: 15px;
+    color: black;
+    bottom: 10px;
+    right: 55px;
+}
+.hatCard .hatDescription {
+    position: relative;
+    font-size: 15px;
+    width: 200px;
+    word-wrap: break-word;
+    color: black;
+    bottom: 50px;
+}

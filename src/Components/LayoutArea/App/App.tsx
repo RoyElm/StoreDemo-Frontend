@@ -1,27 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import { BrowserRouter } from "react-router-dom";
-import Logo from "../Logo/Logo";
+import Header from "../Header/Header";
 import Menu from "../Menu/Menu";
 import Routing from "../Routing/Routing";
-import Footer from "../Footer/Footer";
-import NavLog from "../../UserArea/NavLog/NavLog";
 import store from "../../../Redux/Store";
-
-
+import { socketManagerInstance } from "../../../Socket.io/SocketManager";
 
 function App() {
-    // const state = store.getState().UserReducer.users
-    // let logged = null;
-    // const unsubscribeMe = store.subscribe(() => logged = store.getState().UserReducer.users.firstName);
-
-
+    //handling connect to Socket.io if user/admin did refresh
+    useEffect(() => {
+        if (store.getState().authState.auth.isLoggedIn) {
+            socketManagerInstance.connect();
+        }
+    })
+    
     return (
-
         <BrowserRouter>
             <div className="App">
                 <header>
-                    <Logo />
+                    <Header />
                 </header>
                 <main>
                     <Routing />
@@ -29,9 +27,6 @@ function App() {
                 <aside>
                     <Menu />
                 </aside>
-                <footer>
-                    <Footer />
-                </footer>
             </div>
         </BrowserRouter >
     );

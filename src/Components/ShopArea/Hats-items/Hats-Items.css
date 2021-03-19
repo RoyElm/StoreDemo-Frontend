@@ -1,28 +1,26 @@
-.Hats-Items{
+/* .Hats-Items{
     justify-content: center;
     margin-left: 20%;
+} */
+
+.hat-Container {
+    display: inline-block;
+}
+.hat-Container .mediaCard {
+    height: 250px;
+    width: 100%;
+}
+.hat-Container .MuiCardContent-root {
+    padding: 0;
 }
 
-.Hats-Items > .Card:first-of-type{
-    position: relative;
-    width: 42.8%;
-    height: 440px;
-    left: 20%;
-}
-  
-.Hats-Items .Card section * {
-    font-size: medium;
-    font-weight: bolder;
-}
-
-@media screen and (max-width:750px){
-    .Hats-Items{
-        justify-content: center;
-        margin-left: 10%;
-    }
-    .Hats-Items > .Card:first-of-type{
-        width: 100%;
-        height: 20%;
-        left: -17%;
-    }
+.hat-Container > a {
+    position: absolute;
+    right: 80px;
+    top: 10px;
+    padding: 5px;
+    background: whitesmoke;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
 }

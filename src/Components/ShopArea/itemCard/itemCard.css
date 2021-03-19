@@ -1,0 +1,52 @@
+.itemCard p{
+    margin: 0;
+}
+.itemCard {
+    max-width: 250px;
+    height: 300px;
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.itemCard .addToCartButton {
+    position: absolute;
+    right: 1px;
+    top: 110%;
+    font-size: 10px;
+}
+
+.itemCard .priceSpan {
+    position: absolute;
+    left: 1px;
+    top: 130%;
+    font-size: 15px;
+    color: black;
+}
+
+.itemCard .addIcon {
+    font-size: 10px;
+}
+
+.itemCard .itemColor {
+    position: relative;
+    left: 68px;
+    color: black;
+    font-size: 18px;
+}
+
+.itemCard .itemDescription {
+    word-wrap: break-word;
+}
+
+.itemCard .cardContentItem {
+    position: relative;
+    bottom: 30px;
+}
+.itemCard .itemName {
+    position: relative;
+    font-size: 20px;
+    color: black;
+    font-weight: bolder;
+    text-decoration: underline 2px solid black;
+}

@@ -1,0 +1,12 @@
+.totalItems {
+	position: absolute;
+    right: 30px;
+    top: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.totalItems:hover {
+    text-decoration: none;
+    color: greenyellow;
+}

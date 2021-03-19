@@ -1,10 +1,10 @@
 import { combineReducers, createStore } from "redux";
+import { cartReducer } from "./CartState";
 import { hatsReducer } from './HatsState';
-import { UserReducer } from './UserState';
-// import { adidasReducer } from './AdidasState';
-import { woolfitReducer } from './WoolfitItemsState';
+import { AuthReducer } from './AuthState';
+import { itemsReducer } from './ItemsState';
 
-const reducers = combineReducers({ /*adidasReducer,*/hatsReducer, woolfitReducer, UserReducer });
+const reducers = combineReducers({ hatsState: hatsReducer, itemsState: itemsReducer, authState: AuthReducer, cartState: cartReducer });
 const store = createStore(reducers);
 
 export default store;

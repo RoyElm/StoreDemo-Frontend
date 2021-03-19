@@ -1,0 +1,18 @@
+.About > .MainSentence{
+    color: white;
+    line-height: 50px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px cadetblue;
+}
+ 
+.About a {
+    position: relative;
+    top: 10px;
+    color: rgba(245, 245, 245, 0.966);
+}
+.About a:hover {
+    color: rgba(25, 78, 226, 0.966);
+}
+.About a > * {
+    font-size: 30px;
+}

@@ -1,0 +1,26 @@
+.Checkout {
+    
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    max-width: 450px;
+}
+
+.Checkout .MuiStepper-root{
+    padding: 0;
+}
+
+.Checkout .paperTag{
+    padding: 3px;
+}
+.Checkout .MuiTypography-h4 {
+    font-size: 30px;
+}
+
+.Checkout .buttonsTag {
+    display: flex;
+    justify-content: flex-end;
+}
+.Checkout .MuiStepLabel-label , .Checkout .MuiSvgIcon-root{
+    font-size: 15px;
+}

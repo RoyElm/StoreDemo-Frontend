@@ -1,0 +1,67 @@
+.AdminItemCard p{
+    margin: 0;
+}
+.AdminItemCard {
+    max-width: 250px;
+    height: 300px;
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.AdminItemCard .MuiCardContent-root{
+    height: 80px;
+}
+
+.AdminItemCard .editButton {
+    position: absolute;
+    right: 1px;
+    top: 100%;
+    font-size: 10px;
+}
+
+.AdminItemCard .deleteButton {
+    position: absolute;
+    left: 1px;
+    bottom: 210%;
+    width: 35px;
+    height: 30px;
+}
+
+.AdminItemCard .priceSpan {
+    position: absolute;
+    left: 1px;
+    top: 110%;
+    font-size: 15px;
+    color: black;
+}
+
+.AdminItemCard .editIcon {
+    font-size: 20px;
+}
+.AdminItemCard .deleteIcon {
+    font-size: 15px;
+}
+
+.AdminItemCard .itemColor {
+    position: relative;
+    left: 68px;
+    color: black;
+    font-size: 18px;
+}
+
+.AdminItemCard .itemDescription {
+    word-wrap: break-word;
+}
+
+.AdminItemCard .cardContentItem {
+    position: relative;
+    bottom: 30px;
+}
+.AdminItemCard .itemName {
+    position: relative;
+    font-size: 20px;
+    color: black;
+    font-weight: bolder;
+    text-decoration: underline 2px solid black;
+}

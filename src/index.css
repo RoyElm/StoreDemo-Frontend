@@ -1,28 +1,12 @@
 html, body, #root{
-    height: 100%;
     margin: 0;
     padding: 0;
     text-align: center;
-    background-color: black;
+    background-image: url("./assets/images/backgroundImage.jpg");
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     overflow: auto;
 }
 
-.page{
-height: 100%;
-box-sizing: border-box;
-display: grid;
-grid-template-rows: 10% 75% 15%;
-grid-template-columns: repeat(12, 1fr);
-}
-
-
- header, footer {
-   grid-column: span 12; 
-
-} 
-
- main { 
-    grid-column: span 6;
-    padding: 15px;
-    height: 100%;
-}

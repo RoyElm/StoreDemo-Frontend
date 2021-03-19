@@ -1,20 +1,40 @@
 import React from 'react';
-import Cards from '../../CreatingComponents/Cards/Cards';
 import "./Shop.css"
-import hats from '../../../assets/images/hatsImage/hatImages.jpg'
-import 'primeflex/primeflex.css';
+import firstLink from '../../../assets/images/firstLink.jpg';
+import secondLink from '../../../assets/images/secondLink.jpg';
 import { GlobalPaths } from '../../../Services/GlobalPaths';
-
+import { Card, CardActionArea, CardActions, CardMedia } from '@material-ui/core';
+import { NavLink } from "react-router-dom";
+import { createStyles } from '../../../Services/GlobalStylingMaker';
 
 function Shop() {
+    const classes = createStyles();
     return (
         <div className="Shop p-d-flex p-flex-wrap ">
-            <Cards img={hats} title={"Hats"} id={998}
-                route={GlobalPaths.storeHatsLinkUrl} contentRoute="Go to Hat" />
-            <Cards img={hats} title={"Woolfit Items"} id={999}
-                route={GlobalPaths.storeWoolfitLinkUrl} contentRoute="Go to Woolfit Items" />
-            {/* <Cards img={hats} title={"Adidas Items"}
-                route="/store/adidas-items" contentRoute="Go to Adidas items"/> */}
+            <Card title={"Hats"} key={998}>
+                <CardActionArea>
+                    <CardMedia
+                        className={classes.media}
+                        image={firstLink}
+                        title="Contemplative Reptile"
+                    />
+                </CardActionArea>
+                <CardActions className="linkContainer">
+                    <NavLink to={GlobalPaths.storeHatsLinkUrl}>Go to Hats </NavLink>
+                </CardActions>
+            </Card>
+            <Card title={"Hats"} key={999}>
+                <CardActionArea>
+                    <CardMedia
+                        className={classes.media}
+                        image={secondLink}
+                        title="Contemplative Reptile"
+                    />
+                </CardActionArea>
+                <CardActions className="linkContainer">
+                    <NavLink to={GlobalPaths.storeItemsLinkUrl}>Go to items </NavLink>
+                </CardActions>
+            </Card>
         </div>
     )
 }

@@ -1,14 +1,12 @@
-.Links {
+.navTag {
     display: flex;
     justify-content: center;
 }
 .navTag{
-    position: relative;
-    width: 100px;
+    height:50px;
     padding: 8px;
-    background-color: white;
-    border-radius: 50%;
-    color: black;
+    border-radius: 50px;
+    color: whitesmoke;
     text-decoration: none;
     margin-top: 10%;
     font-size: larger;
@@ -16,20 +14,7 @@
 }
 
 .navTag span {
-    position: relative;
-    top: 10%;
-}
-a:hover{
-    color: blue;
-    text-decoration: none;
+    display: flex;
+    align-items: center;
 }
 
-.navTag img {
-    width: 73%;
-}
-
-@media screen and (max-width:750px){
-    .navTag{
-        width: 90px;
-    }
-}

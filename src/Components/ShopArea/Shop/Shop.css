@@ -1,6 +1,41 @@
 .Shop {
-    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
-    margin-top: 5%;
-    margin-left: 20%;
 }
+
+.Shop > * {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.Shop > * .MuiCardMedia-root{
+    height: 250px;
+}
+.Shop .MuiCardActions-root {
+    padding: 0;
+}
+
+.Shop .linkContainer {
+    display: inline-block;
+    width: 100%;
+    background-color: black;
+}
+.Shop a {
+    background-color:inherit;
+    width: inherit;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    padding: 5px;
+    font-size: 20px;
+    transition-duration: 0.4s;
+}
+
+.Shop a:hover {
+    background-color: blue; 
+    color: white;
+
+}
+

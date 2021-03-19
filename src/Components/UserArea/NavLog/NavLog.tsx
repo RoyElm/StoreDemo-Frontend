@@ -1,44 +1,64 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./NavLog.css";
-import { NavLink } from "react-router-dom";
-import { UserActionType, userModel } from "../../../Redux/UserState";
-import store from "../../../Redux/Store";
 import { Unsubscribe } from "redux";
-import { GlobalPaths } from "../../../Services/GlobalPaths";
+import store from "../../../Redux/Store";
+import LogoutTab from "../LogoutTab/LogoutTab";
+import LoginTab from "../LoginTab/LoginTab";
+import { Avatar, Menu, MenuItem } from "@material-ui/core";
+import authModel from "../../Models/authModel";
+
 
 function NavLog(): JSX.Element {
 
-    const [users, setUsers] = useState<userModel>(store.getState().UserReducer.users);
+    //Handling user login/logout changes.
+    const [auth, setAuth] = useState<authModel>(store.getState().authState.auth);
 
+    //build in Material UI requirements
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const menuItemRef = useRef()
+    const open = Boolean(anchorEl);
+
+    //handling click on Menu component and open the Menu items used Material ui documentation
+    const handleClick = () => {
+        setAnchorEl(menuItemRef.current);
+    };
+
+    //handle close menu item component.
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+    
+    //Handling user login to render his first later of first name to show at Menu, also to know if he logged out or logged in;
     useEffect(() => {
         const unSubscribe: Unsubscribe = store.subscribe(() => {
-            setUsers(store.getState().UserReducer.users);
-        })
+            const auth = store.getState().authState.auth;
+            setAuth(auth);
+        });
         return unSubscribe;
     })
 
-    function logoutUser() {
-        const action = { type: UserActionType.UserLoggedOut, payload: null };
-        store.dispatch(action);
-    }
-
-    const login =
-        <>
-            <NavLink to={GlobalPaths.loginLinkUrl} >התחברות</NavLink>
-            <span> | </span>
-            <NavLink to={GlobalPaths.registerLinkUrl}>הרשמה</NavLink>
-        </>;
-
-    const logout =
-        <>
-            <NavLink to={GlobalPaths.homeLinkUrl} onClick={() => logoutUser()}>התנתקות</NavLink>
-            <span> | </span>
-            <span>  ברוך הבא {users.user && users.user.firstName}</span>
-        </>;
-
     return (
         <nav className="NavLog">
-            {users.isLoggedIn ? logout : login}
+            <Avatar
+                aria-label="more"
+                aria-controls="long-menu"
+                aria-haspopup="true"
+                onClick={handleClick}
+                className="avatar"
+            >
+                {auth.user && auth.isLoggedIn ? auth.user.firstName.charAt(0).toUpperCase() : null}
+            </Avatar>
+
+            <Menu
+                className="long-menu"
+                anchorEl={anchorEl}
+                keepMounted
+                open={open}
+                onClose={handleClose}>
+                <MenuItem onClick={handleClose} ref={menuItemRef}>
+                    {auth.user && auth.isLoggedIn ? <LogoutTab user={auth.user} /> : <LoginTab />}
+                </MenuItem>
+            </Menu>
         </nav>
     );
 }

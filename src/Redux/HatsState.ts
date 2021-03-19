@@ -1,4 +1,4 @@
-import HatModel from "../Components/ShopArea/Models/HatModel";
+import HatModel from "../Components/Models/HatModel";
 
 // Products State: 
 export class HatsState {
@@ -19,6 +19,24 @@ export interface HatsAction {
     payload?: any; // לצורך ביצוע הפעולה Redux-מה המידע שיש לשלוח ל
 }
 
+// Hats Action Creators: 
+export function hatsDownloadedAction(hats: HatModel[]): HatsAction {
+    return { type: HatsActionType.HatsDownloaded, payload: hats };
+}
+
+export function hatAddedAction(addedHat: HatModel): HatsAction {
+    return { type: HatsActionType.HatAdded, payload: addedHat };
+}
+
+export function hatUpdatedAction(updatedHat: HatModel): HatsAction {
+    return { type: HatsActionType.HatUpdated, payload: updatedHat };
+}
+
+export function hatDeletedAction(hatId: number): HatsAction {
+    return { type: HatsActionType.HatDeleted, payload: hatId };
+}
+
+
 // Products Reducer: 
 export function hatsReducer(
     currentState: HatsState = new HatsState(),
@@ -36,12 +54,13 @@ export function hatsReducer(
             break;
 
         case HatsActionType.HatUpdated:
-            const indexToUpdate = newState.hats.findIndex(p => p.hatId == action.payload.id);
-            newState.hats[indexToUpdate] = action.payload; // payload = the updated product
+            const indexToUpdate = newState.hats.findIndex(p => p.hatId === action.payload.hatId);
+            console.log(action.payload.hatId);
+            newState.hats[indexToUpdate] = action.payload;
             break;
 
         case HatsActionType.HatDeleted:
-            const indexToDelete = newState.hats.findIndex(p => p.hatId == action.payload); // payload = the deleted product's id
+            const indexToDelete = newState.hats.findIndex(p => p.hatId === action.payload); // payload = the deleted product's id
             newState.hats.splice(indexToDelete, 1);
             break;
     }

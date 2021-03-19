@@ -1,10 +1,55 @@
 .NavLog {
     position: absolute;
-    top: 1px;
-    right: 1px;
+    left: 15px;
+    top: 6px;
 }
 
 .NavLog a ,.NavLog span{
-    text-decoration: none;
-    color: whitesmoke;
+    color: #262626;
+}
+.long-menu .LoginTab {
+    height: 30px;
+
+}
+.long-menu {
+    max-height: 150px;
+    width: 20ch;
+}
+.long-menu .MuiMenu-paper {
+    position: absolute;
+    left: 50px;
+    background-image: url("../../../assets/images/loginImage.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.long-menu .MuiMenu-paper > * {
+    padding: 0;
+}
+.long-menu .MuiMenu-paper .MuiListItem-root {
+    padding: 2px;
+}
+.long-menu .LoginTab a,.long-menu .LoginTab span {
+    font-size: 10px;
+    color: white;
+}
+.long-menu .LogoutTab a,.long-menu .LogoutTab span {
+    font-size: 10px;
+    color: white;
+    padding: 0;
+}
+.long-menu .LogoutTab{
+    padding: 0;
+}
+
+.long-menu .LoginTab a:hover{
+    font-size: 10px;
+    color: rgb(181, 141, 219);
+}
+
+
+.NavLog .avatar {
+    cursor:pointer;
+    width: 35px;
+    height: 35px;
 }

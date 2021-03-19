@@ -1,0 +1,54 @@
+.CartShop h3{
+	color: rgb(0, 255, 98);
+    font-weight: bolder;
+    font-size: 20px;
+    display: block;
+}
+
+.CartShop{
+    display: inline-block;
+}
+.CartShop .totalPriceCheckout a{
+    text-decoration: none;
+    color: white;
+}
+.CartShop .totalPriceCheckout h3{
+    color: rgb(0, 255, 98);
+    text-decoration: 3px solid white underline;
+}
+.CartShop .totalPriceCheckout .usdIcon{
+    position: relative;
+    top: 5px;
+    right: 8px;
+}
+
+.CartShop .totalPriceCheckout .buttonCheckout{
+    background-image: url("../../../assets/images/checkout.jpg");
+}
+
+.CartShop .totalPriceCheckout .buttonCheckout .paymentIcon{
+    position: relative;
+    top: 5px;
+    font-size: 20px;
+}
+
+.CartShop .cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center
+}
+
+.CartShop .cardContainer > *{
+    margin: 5px 5px;
+}
+
+.CartShop .cardContainer > .CartCardItem-root,.CartShop .cardContainer > .CartCardHat-root {
+    justify-items: center;
+}
+.CartShop .storeIcon {
+    font-size: 35px;
+    position: relative;
+    top: 10px;
+    color:rgb(247, 247, 247);
+}

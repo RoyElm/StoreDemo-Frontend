@@ -1,11 +1,17 @@
 .Menu {
     position: fixed;
-    right: 2%;
+    right: 20px;
+    width: inherit;
+}
+.Menu .navTag {
+    background-image: url("../../../assets/images/navImage.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
 }
 
 @media screen and (max-width:750px){
-    .Menu {
-        top: 200px;
-        right: -29px;
+    .Menu{
+        right: 0;
     }
 }
