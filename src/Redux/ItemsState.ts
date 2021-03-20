@@ -54,7 +54,7 @@ export function itemsReducer(
             break;
 
         case itemsActionType.ItemUpdated:
-            const indexToUpdate = newState.items.findIndex(p => p.itemId === action.payload.id);
+            const indexToUpdate = newState.items.findIndex(p => p.itemId === action.payload.itemId);
             newState.items[indexToUpdate] = action.payload;
             break;
 

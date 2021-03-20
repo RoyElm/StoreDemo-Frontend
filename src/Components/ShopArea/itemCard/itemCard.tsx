@@ -17,8 +17,7 @@ interface itemProps {
 export default function ItemCard(props: itemProps): JSX.Element {
     const classes = createStyles();
 
-    function addToCart(item:itemsModel){
-        console.log(item);
+    function addToCart(item: itemsModel) {
         store.dispatch(cartItemAddedAction(item));
         notificationService.success("Added");
     }
@@ -46,9 +45,9 @@ export default function ItemCard(props: itemProps): JSX.Element {
                     <span className="priceSpan">
                         {props.item.itemPrice + "$"}
                     </span>
-                        <Fab color="primary" aria-label="add" onClick={() => addToCart(props.item)} className={classes.fab + " addToCartButton"}>
-                           Add <Add className="addIcon" /> 
-                        </Fab>
+                    <Fab color="primary" aria-label="add" onClick={() => addToCart(props.item)} className={classes.fab + " addToCartButton"}>
+                        Add <Add className="addIcon" />
+                    </Fab>
                 </Typography >
             </CardContent >
         </Card >

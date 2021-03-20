@@ -11,7 +11,6 @@ class SocketManager {
 
         // Connect to socket.io:
         this.socket = io(Globals.socketUrl);
-
         // Listen to socket.io events: 
         this.socket.on("msg-from-server-item-added", addedItem => {
             store.dispatch(itemAddedAction(addedItem));
@@ -22,7 +21,7 @@ class SocketManager {
         this.socket.on("msg-from-server-item-deleted", itemId => {
             store.dispatch(itemDeletedAction(itemId));
         });
-        // Listen to socket.io events: 
+
         this.socket.on("msg-from-server-hat-added", addedHat => {
             store.dispatch(hatAddedAction(addedHat));
         });
@@ -39,5 +38,5 @@ class SocketManager {
         this.socket.disconnect();
     }
 }
-
+export default SocketManager;
 export const socketManagerInstance = new SocketManager();

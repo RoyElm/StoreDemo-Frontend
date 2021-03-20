@@ -55,7 +55,6 @@ export function hatsReducer(
 
         case HatsActionType.HatUpdated:
             const indexToUpdate = newState.hats.findIndex(p => p.hatId === action.payload.hatId);
-            console.log(action.payload.hatId);
             newState.hats[indexToUpdate] = action.payload;
             break;
 
